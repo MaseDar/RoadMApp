@@ -1,22 +1,36 @@
 export interface UserState {
-    users: any[];
-    loading: boolean;
-    error: null | string;
+    id: number
+    login: string
+    password: string
+    firstname: string
+    secondname: string
+    email: string
+    error: null | string
+    loading: boolean
 }
+
 export enum UserActionTypes {
-    FETCH_USERS = 'FETCH_USERS',
-    FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS',
-    FETCH_USERS_ERROR = 'FETCH_USERS_FETCH_USERS_ERROR',
+    LOGIN = "LOGIN",
+    SIGNUP = "SIGNUP",
+    EXIT = "EXIT",
 }
-interface FetchUsersAction {
-    type: UserActionTypes.FETCH_USERS;
+
+interface LoginUserAction {
+    type: UserActionTypes.LOGIN,
+    success: boolean 
+    error: null | string
 }
-interface FetchUsersSuccessAction {
-    type: UserActionTypes.FETCH_USERS_SUCCESS;
-    payload: any[]
+
+interface SignUpUserAction {
+    type: UserActionTypes.SIGNUP,
+    success: boolean 
+    error: null | string
 }
-interface FetchUsersErrorAction {
-    type: UserActionTypes.FETCH_USERS_ERROR;
-    payload: string;
+
+interface ExitUserAction {
+    type: UserActionTypes.EXIT,
+    success: boolean 
+    error: null | string
 }
-export type UserAction = FetchUsersAction | FetchUsersErrorAction | FetchUsersSuccessAction
+
+export type UserAction = LoginUserAction | SignUpUserAction | ExitUserAction

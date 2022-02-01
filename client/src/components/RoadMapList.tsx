@@ -3,13 +3,13 @@ import {useTypedSelector} from "../hooks/useTypedSeletor";
 import {useActions} from "../hooks/useActions";
 
 const RoadMapList: React.FC = () => {
-    const {page, error, loading, todos, limit} = useTypedSelector(state => state.roadmap)
-    const {fetchRoadMaps, setRoadMapPage} = useActions()
+    const { error, loading, roadmaps, limit} = useTypedSelector(state => state.roadmap)
+    const {getRoadmaps} = useActions()
     const pages = [1, 2, 3, 4, 5]
 
     useEffect(() => {
-        fetchRoadMaps(page, limit)
-    }, [page])
+        getRoadmaps()
+    }, [])
 
     if (loading) {
         return <h1>Идет загрузка...</h1>
@@ -20,19 +20,9 @@ const RoadMapList: React.FC = () => {
 
     return (
         <div>
-            {todos.map(todo =>
-                <div key={todo.id}>{todo.id} - {todo.title}</div>
+            {roadmaps.map(roadmap =>
+                <div key={roadmap.id}>{roadmap.id} - {roadmap.name} - {roadmap.description}</div>
             )}
-            <div style={{display: "flex"}}>
-                {pages.map(p =>
-                    <div
-                        onClick={() => setRoadMapPage(p)}
-                        style={{border:p === page ? '2px solid green' : '1px solid gray', padding: 10}}
-                    >
-                        {p}
-                    </div>
-                )}
-            </div>
         </div>
     );
 };

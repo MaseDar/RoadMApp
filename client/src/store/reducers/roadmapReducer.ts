@@ -1,8 +1,7 @@
 import {RoadMapAction, RoadMapActionTypes, RoadMapState} from "../../types/roadmap";
 
 const initialState: RoadMapState = {
-    todos: [],
-    page: 1,
+    roadmaps: [],
     error: null,
     limit: 10,
     loading: false
@@ -10,14 +9,12 @@ const initialState: RoadMapState = {
 
 export const roadmapReducer = (state = initialState, action: RoadMapAction): RoadMapState => {
     switch (action.type) {
-        case RoadMapActionTypes.FETCH_ROADMAPS:
+        case RoadMapActionTypes.LOADING_ROADMAPS:
             return {...state, loading: true}
-        case RoadMapActionTypes.FETCH_ROADMAPS_SUCCESS:
-            return {...state, loading: false, todos: action.payload}
-        case RoadMapActionTypes.FETCH_ROADMAPS_ERROR:
-            return {...state, loading: false, error: action.payload}
-        case RoadMapActionTypes.SET_ROADMAP_PAGE:
-            return {...state, page: action.payload}
+        case RoadMapActionTypes.GET_USER_ROADMAPS:
+            return {...state, loading: false, roadmaps: action.roadmaps}
+        case RoadMapActionTypes.ERROR:
+            return {...state, loading: false, error: action.error}
         default:
             return state
     }
