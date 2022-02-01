@@ -22,3 +22,5 @@ react-router - npm install --save @types/react-router-dom
 ├── tsconfig.json
 ├── package.json
 └── yarn.lock
+
+npm install --save typescript @types/node @types/react @types/react-dom @types/jest; npm install redux react-redux redux-thunk; npm install -D @types/redux @types/react-redux @types/redux-thunk; npm install --save @types/react-router-dom
