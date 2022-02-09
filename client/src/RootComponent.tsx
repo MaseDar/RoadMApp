@@ -1,4 +1,4 @@
-import "./RootComponent.css";
+// import "./RootComponent.css";
 import {
   BrowserRouter as Router,
   Routes,
@@ -21,12 +21,12 @@ const RootComponent: React.FC = () => {
 
       <Router>
         <Routes>
-          {/* <Route path="/" element={<Home />}> */}
-          {/* <Route index element={<Home />} /> */}
-          {/* <Route path="about" element={<About />} /> */}
-          {/* <Route path="dashboard" element={<Dashboard />} /> */}
-          {/* <Route path="*" element={<Home />} /> */}
-          {/* </Route> */}
+          <Route path="/">
+            <Route index element={<Home />} />
+            {/* <Route path="about" element={<About />} /> */}
+            {/* <Route path="dashboard" element={<Dashboard />} /> */}
+            {/* <Route path="*" element={<Home />} /> */}
+          </Route>
         </Routes>
       </Router>
     </div>

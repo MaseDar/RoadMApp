@@ -1,3 +1,4 @@
+import "antd/dist/antd.css";
 import ReactDOM from "react-dom";
 import RootComponent from "./RootComponent";
 import { Provider } from "react-redux";
