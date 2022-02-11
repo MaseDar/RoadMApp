@@ -1,12 +1,12 @@
 import "antd/dist/antd.css";
 import ReactDOM from "react-dom";
-import RootComponent from "./RootComponent";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import RootRouter from "./RootRouter";
 
 ReactDOM.render(
   <Provider store={store}>
-    <RootComponent />
+    <RootRouter />
   </Provider>,
   document.getElementById("root")
 );
