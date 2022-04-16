@@ -30,7 +30,7 @@ export const RoadmapsProfile: React.FC = () => {
             <RoadItem />
           </Col>
           <Col
-            flex="auto"
+            span={7}
             offset={1}
             style={{
               borderRadius: "10px",
@@ -58,7 +58,7 @@ export const RoadmapsProfile: React.FC = () => {
             <RoadItem />
           </Col>
           <Col
-            flex="auto"
+            span={14}
             offset={1}
             style={{
               borderRadius: "10px",

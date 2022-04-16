@@ -8,7 +8,7 @@ import { Achieves } from "./components/profile/navigation/achieves/Achieves";
 import { Friends } from "./components/profile/navigation/friends/Friends";
 import { RoadmapsProfile } from "./components/profile/navigation/roadmaps/RoadmapsProfile";
 import { Profile } from "./components/profile/Profile";
-import { Roadmap } from "./components/Roadmap";
+import { Roadmap } from "./components/roadmap/Roadmap";
 import { Roadmaps } from "./components/roadmaps/Roadmaps";
 import { RootLayout } from "./components/RootLayout";
 
