@@ -1,9 +1,16 @@
 import { Col, Row } from "antd";
+import { useNavigate } from "react-router-dom";
+
 export const RoadItem: React.FC = () => {
   let height = "92px";
+  let navigate = useNavigate();
+  const changePath = (idRoadmap: number) => {
+    navigate(`/roadmap/${idRoadmap}`);
+  };
+  let id = 52;
   return (
     <>
-      <Row style={{ paddingTop: "67px" }} gutter={[16, 16]}>
+      <Row gutter={[16, 16]}>
         <Col
           span={22}
           offset={1}
@@ -12,6 +19,7 @@ export const RoadItem: React.FC = () => {
             backgroundColor: "#7BA4A8",
             height: height,
           }}
+          onClick={() => changePath(id)}
         >
           <div>TEST</div>
         </Col>

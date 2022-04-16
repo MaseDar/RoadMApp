@@ -10,18 +10,18 @@ export const NavigatorProfile: React.FC = () => {
     <>
       <Radio.Group
         style={{ transform: "scale(1.25)" }}
-        defaultValue="active"
+        defaultValue="roadmaps"
         size="large"
       >
         <Radio.Button
-          value="active"
+          value="achieves"
           onClick={changePath}
           style={{
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.1)",
             borderRadius: "10px 0px 0px 10px",
           }}
         >
-          Active
+          Achieves
         </Radio.Button>
         <Radio.Button
           value="roadmaps"
