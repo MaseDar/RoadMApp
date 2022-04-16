@@ -1,4 +1,4 @@
-import "antd/dist/antd.css";
+import "antd/dist/antd.min.css";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { store } from "./store";

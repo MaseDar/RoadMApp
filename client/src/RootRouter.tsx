@@ -1,4 +1,3 @@
-import "antd/dist/antd.css";
 import {
   BrowserRouter as Router,
   Routes,
