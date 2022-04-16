@@ -7,7 +7,7 @@ import {
 import { Link, Outlet } from "react-router-dom";
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Footer } = Layout;
 
 export const RootLayout: React.FC = () => {
   return (
@@ -25,19 +25,15 @@ export const RootLayout: React.FC = () => {
         </Menu>
       </Header>
       <Layout>
-        <Layout style={{ padding: "0 0 0 0" }}>
-          <Content
-            className="site-layout-background"
-            style={{
-              padding: 0,
-              margin: 0,
-              // minHeight: 280,
-            }}
-          >
+        <Layout>
+          <Content className="site-layout-background">
             <Outlet />
           </Content>
         </Layout>
       </Layout>
+      <Footer style={{ textAlign: "center" }}>
+        RoadM.App ©2022 Created by MaseDar
+      </Footer>
     </Layout>
   );
 };
