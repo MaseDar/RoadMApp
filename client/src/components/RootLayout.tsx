@@ -14,7 +14,7 @@ export const RootLayout: React.FC = () => {
     <Layout>
       <Header className="header">
         <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">
             <Link to="/profile">Profile</Link>
           </Menu.Item>
@@ -25,13 +25,13 @@ export const RootLayout: React.FC = () => {
         </Menu>
       </Header>
       <Layout>
-        <Layout style={{ padding: "0 24px 24px" }}>
+        <Layout style={{ padding: "0 0 0 0" }}>
           <Content
             className="site-layout-background"
             style={{
-              padding: 24,
+              padding: 0,
               margin: 0,
-              minHeight: 280,
+              // minHeight: 280,
             }}
           >
             <Outlet />
