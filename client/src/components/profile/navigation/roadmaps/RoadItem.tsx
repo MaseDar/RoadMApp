@@ -31,13 +31,13 @@ export const RoadItem: React.FC = () => {
           }}
           onClick={() => changePath(id)}
         >
-          <HatRoadmap
+          {/* <HatRoadmap
             name={hat.name}
             percent={hat.percent}
             short_desctiption={hat.short_desctiption}
             full_description={hat.full_description}
             small={true}
-          />
+          /> */}
         </Col>
         <Col span={1} />
         <Col

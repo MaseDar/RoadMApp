@@ -1,6 +1,6 @@
 import { ActionState } from "./extenders/ActionState";
 
-interface RoadmapState {
+export interface RoadmapState {
   user_id: number;
   roadmap_id: number;
   name: string;

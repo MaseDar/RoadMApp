@@ -8,19 +8,13 @@ export const getRoadmaps = () => {
       // Установка загрузки
       dispatch({ type: RoadmapActionTypes.LOADING_ROADMAP });
       // Запрос
-      await axios
-        .get("http://localhost:5000", {
-          params: {
-            type: "all",
-          },
+      await axios.get("http://localhost:3000/roadmap").then((res) =>
+        dispatch({
+          type: RoadmapActionTypes.GET_ROADMAP,
+          roadmap: res.data,
+          success: true,
         })
-        .then((res) =>
-          dispatch({
-            type: RoadmapActionTypes.GET_ROADMAP,
-            roadmap: res.data,
-            success: true,
-          })
-        );
+      );
     } catch (e) {
       dispatch({
         type: RoadmapActionTypes.ERROR,

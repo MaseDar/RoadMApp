@@ -4,7 +4,7 @@ import { roadmapReducer } from "./roadmapReducer";
 
 export const rootReducer = combineReducers({
   // users: usersReducer,
-  roadmap: roadmapReducer,
+  stateRoadmap: roadmapReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

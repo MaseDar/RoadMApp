@@ -1,9 +1,12 @@
 import { Avatar, Col, Row } from "antd";
+import { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
+import { useTypedSelector } from "../../hooks/useTypedSeletor";
+import { getRoadmaps } from "../../store/action-creators/roadmap";
 import { HatProfile } from "../profile/HatProfile";
 import { NavigatorProfile } from "../profile/NavigatorProfile";
 import { HatRoadmap } from "./HatRoadmap";
-
+import { RoadmapContainer } from "../../types/roadmap";
 interface RoadmapProps {
   id: number;
   name: string;
@@ -18,15 +21,18 @@ let hat = {
 };
 
 export const Roadmap: React.FC = () => {
+  const { stateRoadmap } = useTypedSelector((state) => state);
   const params = useParams();
   console.log(params);
+  useEffect(() => {
+    getRoadmaps();
+    console.log(stateRoadmap);
+  }, []);
   return (
     <>
       <HatRoadmap
-        name={hat.name}
-        percent={hat.percent}
-        short_desctiption={hat.short_desctiption}
-        full_description={hat.full_description}
+        roadmap={stateRoadmap.roadmap}
+        loading={stateRoadmap.loading}
         small={false}
       />
     </>
