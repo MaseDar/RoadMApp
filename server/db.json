@@ -20,18 +20,20 @@
   "ZALUPISHKA": {
     "active_roadmaps": [
       {
-        "user_id": 1,
-        "roadmap_id": 1,
-        "name": "testing Name",
-        "short_description": "short_descr",
-        "full_description": "fulkl",
-        "background_url": "back_url",
-        "avatar_img": "av",
-        "percent": 99,
-        "favorite": true,
-        "isActive": true,
-        "isCreator": true,
-        "isEditor": true
+        "roadmap": {
+          "user_id": 1,
+          "roadmap_id": 1,
+          "name": "testing Name",
+          "short_description": "short_descr",
+          "full_description": "fulkl",
+          "background_url": "back_url",
+          "avatar_img": "av",
+          "percent": 99,
+          "favorite": true,
+          "isActive": true,
+          "isCreator": true,
+          "isEditor": true
+        }
       }
     ],
     "sucessed_roadmaps": [],

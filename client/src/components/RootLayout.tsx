@@ -16,7 +16,7 @@ export const RootLayout: React.FC = () => {
         <div className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">
-            <Link to="/profile">Profile</Link>
+            <Link to="/profile/roadmaps">Profile</Link>
           </Menu.Item>
 
           <Menu.Item key="2">
