@@ -8,6 +8,7 @@ import { Achieves } from "./components/profile/navigation/achieves/Achieves";
 import { Friends } from "./components/profile/navigation/friends/Friends";
 import { RoadmapsProfile } from "./components/profile/navigation/roadmaps/RoadmapsProfile";
 import { Profile } from "./components/profile/Profile";
+import { CreateRoadmap } from "./components/roadmap/CreateRoadmap";
 import { Roadmap } from "./components/roadmap/Roadmap";
 import { Roadmaps } from "./components/roadmaps/Roadmaps";
 import { RootLayout } from "./components/RootLayout";
@@ -29,6 +30,7 @@ const RootRouter: React.FC = () => {
               <Route path="friends" element={<Friends />} />
             </Route>
             <Route path="roadmap/:id" element={<Roadmap />} />
+            <Route path="roadmap/create" element={<CreateRoadmap />} />
             <Route path="roadmaps" element={<Roadmaps />} />
             {/* <Route path="dashboard" element={<Dashboard />} /> */}
             <Route path="*" element={<Navigate to="/profile" />} />

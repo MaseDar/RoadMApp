@@ -1,63 +1,65 @@
-export interface RoadMapState {
-    roadmaps: any[];
-    loading: boolean;
-    error: null | string;
-    limit: number;
+import { ActionState } from "./extenders/ActionState";
+
+interface RoadmapState {
+  user_id: number;
+  roadmap_id: number;
+  name: string;
+  short_description: string;
+  full_description: string;
+  background_url: string;
+  avatar_img: string;
+  percent: number;
+}
+export interface RoadmapContainer {
+  roadmap: RoadmapState;
+  loading: boolean;
+  error?: string;
 }
 
-export enum RoadMapActionTypes {
-    LOADING_ROADMAPS = 'LOADING_ROADMAPS',
-    GET_USER_ROADMAPS = 'GET_USER_ROADMAPS',
-    GET_ROADMAP = 'GET_ROADMAP',
-    CREATE_ROADMAP = 'CREATE_ROADMAP',
-    EDIT_ROADMAP = 'EDIT_ROADMAP',
-    DELETE_ROADMAP = 'DELETE_ROADMAP',
-    ERROR = 'ERROR',
+export enum RoadmapActionTypes {
+  LOADING_ROADMAP = "LOADING_ROADMAP",
+  // GET_USER_ROADMAPS = "GET_USER_ROADMAPS",
+  GET_ROADMAP = "GET_ROADMAP",
+  CREATE_ROADMAP = "CREATE_ROADMAP",
+  EDIT_ROADMAP = "EDIT_ROADMAP",
+  DELETE_ROADMAP = "DELETE_ROADMAP",
+  ERROR = "ERROR",
 }
 
 interface LoadingRoadmapAction {
-    type: RoadMapActionTypes.LOADING_ROADMAPS
+  type: RoadmapActionTypes.LOADING_ROADMAP;
 }
 
-interface GetUserRoadmapsAction {
-    type: RoadMapActionTypes.GET_USER_ROADMAPS,
-    roadmaps: any[],
-    success: boolean,
-}
+// interface GetUserRoadmapsAction {
+//   type: RoadMapActionTypes.GET_USER_ROADMAPS;
+//   roadmaps: any[];
+//   success: boolean;
+// }
 
 interface GetRoadmapAction {
-    type: RoadMapActionTypes.GET_ROADMAP,
-    user_id: number,
-    roadmap_id: number,
-    success: boolean,
+  type: RoadmapActionTypes.GET_ROADMAP;
+  roadmap: RoadmapState;
 }
 interface CreateRoadmapAction {
-    type: RoadMapActionTypes.CREATE_ROADMAP,
-    user_id: number,
-    roadmap_name: string,
-    roadmap_description: string,
-    success: boolean,
+  type: RoadmapActionTypes.CREATE_ROADMAP;
 }
 interface EditRoadmapAction {
-    type: RoadMapActionTypes.EDIT_ROADMAP,
-    user_id: number,
-    roadmap_id: number,
-    roadmap_name: string,
-    roadmap_description: string,
-    success: boolean,
+  type: RoadmapActionTypes.EDIT_ROADMAP;
 }
 interface DeleteRoadmapAction {
-    type: RoadMapActionTypes.DELETE_ROADMAP,
-    user_id: number,
-    roadmap_id: number,
-    success: boolean,
-}  
+  type: RoadmapActionTypes.DELETE_ROADMAP;
+  user_id: number;
+  roadmap_id: number;
+}
 interface ErrorAction {
-    type: RoadMapActionTypes.ERROR,
-    error: string
-}  
+  type: RoadmapActionTypes.ERROR;
+  error: string;
+}
 
-
-
-
-export type RoadMapAction = GetRoadmapAction | CreateRoadmapAction | EditRoadmapAction | DeleteRoadmapAction | LoadingRoadmapAction | GetUserRoadmapsAction | ErrorAction
+export type RoadmapAction =
+  | GetRoadmapAction
+  | CreateRoadmapAction
+  | EditRoadmapAction
+  | DeleteRoadmapAction
+  | LoadingRoadmapAction
+  | ErrorAction;

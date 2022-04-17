@@ -1,32 +1,35 @@
-import {Dispatch} from "redux";
+import { Dispatch } from "redux";
 import axios from "axios";
-import {RoadMapAction, RoadMapActionTypes} from "../../types/roadmap";
+import { RoadmapAction, RoadmapActionTypes } from "../../types/roadmap";
 
 export const getRoadmaps = () => {
-    return async (dispatch: Dispatch<RoadMapAction>) => {
-        try {
-            dispatch({type: RoadMapActionTypes.LOADING_ROADMAPS})
-            const response = await axios.get("http://localhost:5000", {
-                params: {
-                    type: "all"
-                }
-            })
-            setTimeout(() => {
-                dispatch({
-                    type: RoadMapActionTypes.GET_USER_ROADMAPS, 
-                    roadmaps: response.data,
-                    success: true
-                })
-            }, 500)
-        } catch (e) {
-            dispatch({
-                type: RoadMapActionTypes.ERROR, 
-                error: "Ошибка: " + e
-            })
-        }
+  return async (dispatch: Dispatch<RoadmapAction>) => {
+    try {
+      // Установка загрузки
+      dispatch({ type: RoadmapActionTypes.LOADING_ROADMAP });
+      // Запрос
+      await axios
+        .get("http://localhost:5000", {
+          params: {
+            type: "all",
+          },
+        })
+        .then((res) =>
+          dispatch({
+            type: RoadmapActionTypes.GET_ROADMAP,
+            roadmap: res.data,
+            success: true,
+          })
+        );
+    } catch (e) {
+      dispatch({
+        type: RoadmapActionTypes.ERROR,
+        error: "Ошибка: " + e,
+        success: false,
+      });
     }
-}
-
+  };
+};
 
 // export const fetchRoadMaps = (page = 1, limit = 10) => {
 //     return async (dispatch: Dispatch<RoadMapAction>) => {

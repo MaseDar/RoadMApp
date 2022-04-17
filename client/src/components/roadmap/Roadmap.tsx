@@ -22,7 +22,6 @@ export const Roadmap: React.FC = () => {
   console.log(params);
   return (
     <>
-      {/* <div style={{ height: "300px", backgroundColor: "#B9C444" }}> */}
       <HatRoadmap
         name={hat.name}
         percent={hat.percent}
@@ -30,13 +29,6 @@ export const Roadmap: React.FC = () => {
         full_description={hat.full_description}
         small={false}
       />
-      {/* </div> */}
-      {/* TODO: вынести в консанты стили*/}
-      <div style={{ padding: "0px 25px 0px 25px" }}>
-        {/* <Space direction="horizontal" align="center"> */}
-        <Outlet />
-        {/* </Space> */}
-      </div>
     </>
   );
 };
