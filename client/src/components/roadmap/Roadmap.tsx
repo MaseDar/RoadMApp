@@ -2,15 +2,11 @@ import { Avatar, Col, Row } from "antd";
 import { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import { useTypedSelector } from "../../hooks/useTypedSeletor";
-import { getRoadmaps } from "../../store/action-creators/roadmap";
-import { HatProfile } from "../profile/HatProfile";
-import { NavigatorProfile } from "../profile/NavigatorProfile";
-import { HatRoadmap } from "./HatRoadmap";
-import { RoadmapContainer } from "../../types/roadmap";
-interface RoadmapProps {
-  id: number;
-  name: string;
-}
+import {
+  getRoadmap,
+  getUserRoadmaps,
+} from "../../store/action-creators/roadmap";
+import { RHat } from "./RHat";
 let hat = {
   name: "Lorem ipsum dolor sit amet",
   percent: 88,
@@ -20,21 +16,15 @@ let hat = {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor neque vitae. Ornare massa eget egestas purus viverra accumsan in nisl. Vulputate dignissim suspendisse in est ante in. Sem fringilla ut morbi tincidunt augue interdum velit euismod in.",
 };
 
+// нужен удобный контенер
 export const Roadmap: React.FC = () => {
-  const { stateRoadmap } = useTypedSelector((state) => state);
+  const { stateRoadmaps, user } = useTypedSelector((state) => state);
   const params = useParams();
   console.log(params);
+  console.log(stateRoadmaps.roadmaps.active_roadmaps);
   useEffect(() => {
-    getRoadmaps();
-    console.log(stateRoadmap);
+    getRoadmap();
+    console.log(user);
   }, []);
-  return (
-    <>
-      <HatRoadmap
-        roadmap={stateRoadmap.roadmap}
-        loading={stateRoadmap.loading}
-        small={false}
-      />
-    </>
-  );
+  return <>{/* <RHat roadmap={stateRoadmaps.roadmap} small={false} /> */}</>;
 };

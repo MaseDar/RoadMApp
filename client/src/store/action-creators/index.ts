@@ -1,7 +1,7 @@
-// import * as UserActionCreators from './users'
-import * as RoadMapActionCreators from "./roadmap";
+import * as UserActionCreators from "./users";
+import * as RoadmapActionCreators from "./roadmap";
 
 export default {
-  ...RoadMapActionCreators,
-  // ...UserActionCreators
+  ...RoadmapActionCreators,
+  ...UserActionCreators,
 };

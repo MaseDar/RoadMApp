@@ -1,20 +1,53 @@
 import { Dispatch } from "redux";
 import axios from "axios";
-import { RoadmapAction, RoadmapActionTypes } from "../../types/roadmap";
+import {
+  RoadmapAction,
+  RoadmapActionTypes,
+  RoadmapState,
+} from "../../types/roadmap";
+import { UserState } from "../../types/user";
 
-export const getRoadmaps = () => {
+export const getUserRoadmaps = (user: UserState) => {
   return async (dispatch: Dispatch<RoadmapAction>) => {
     try {
       // Установка загрузки
       dispatch({ type: RoadmapActionTypes.LOADING_ROADMAP });
       // Запрос
-      await axios.get("http://localhost:3000/roadmap").then((res) =>
-        dispatch({
-          type: RoadmapActionTypes.GET_ROADMAP,
-          roadmap: res.data,
-          success: true,
-        })
+      const response = await axios.get(
+        `http://localhost:3000/profile/${user.login}/roadmaps/`
       );
+      dispatch({
+        type: RoadmapActionTypes.GET_USER_ROADMAPS,
+        roadmaps: response.data,
+        success: true,
+      });
+    } catch (e) {
+      dispatch({
+        type: RoadmapActionTypes.ERROR,
+        error: "Ошибка: " + e,
+        success: false,
+      });
+    }
+  };
+};
+
+export const getRoadmap = () => {
+  return async (dispatch: Dispatch<RoadmapAction>) => {
+    try {
+      // Установка загрузки
+      dispatch({ type: RoadmapActionTypes.LOADING_ROADMAP });
+      // Запрос
+      await axios
+        .post("http://localhost:3000/roadmap", {
+          id: 2,
+        })
+        .then((res) =>
+          dispatch({
+            type: RoadmapActionTypes.GET_ROADMAP,
+            roadmap: res.data,
+            success: true,
+          })
+        );
     } catch (e) {
       dispatch({
         type: RoadmapActionTypes.ERROR,

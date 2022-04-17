@@ -1,9 +1,8 @@
 import { Col, Row } from "antd";
-import { RoadItem } from "./RoadItem";
-import { CardViewAll } from "../CardViewAll";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { PRCard } from "../../../extends/roadmap/PRCard";
 
-export const RoadmapsProfile: React.FC = () => {
+export const PRoadmaps: React.FC = () => {
   let height = "400px";
   const location = useLocation();
 
@@ -16,20 +15,8 @@ export const RoadmapsProfile: React.FC = () => {
           // style={{ backgroundColor: "#A5B05B", padding: "25px 0px 25px 0px " }}
           gutter={[40, 40]}
         >
-          <Col
-            span={14}
-            offset={1}
-            style={{
-              borderRadius: "10px",
-              backgroundColor: "#A5C05B",
-              height: height,
-            }}
-          >
-            {/* <CardViewAll>Active Roadmaps</CardViewAll> */}
-            <CardViewAll nameCard="Active Roadmaps" namePath="active" />
-            <RoadItem />
-          </Col>
-          <Col
+          <PRCard />
+          {/* <Col
             span={7}
             offset={1}
             style={{
@@ -38,9 +25,9 @@ export const RoadmapsProfile: React.FC = () => {
               height: height,
             }}
           >
-            <CardViewAll nameCard="Success Roadmaps" namePath="successed" />
-            {/* <CardViewAll>Active Roadmaps</CardViewAll> */}
-            <RoadItem />
+            <PSeeAll nameCard="Success Roadmaps" namePath="successed" />
+            
+            <PRCardItem />
           </Col>
           <Col span={1} />
 
@@ -53,9 +40,9 @@ export const RoadmapsProfile: React.FC = () => {
               height: height,
             }}
           >
-            <CardViewAll nameCard="Created Roadmaps" namePath="created" />
-            {/* <CardViewAll>Active Roadmaps</CardViewAll> */}
-            <RoadItem />
+            <PSeeAll nameCard="Created Roadmaps" namePath="created" />
+            
+            <PRCardItem />
           </Col>
           <Col
             span={14}
@@ -66,11 +53,11 @@ export const RoadmapsProfile: React.FC = () => {
               height: height,
             }}
           >
-            <CardViewAll nameCard="Favorites Roadmaps" namePath="favorites" />
-            {/* <CardViewAll>Active Roadmaps2</CardViewAll> */}
-            <RoadItem />
+            <PSeeAll nameCard="Favorites Roadmaps" namePath="favorites" />
+            
+            <PRCardItem />
           </Col>
-          <Col span={1} />
+          <Col span={1} /> */}
         </Row>
       )}
     </>

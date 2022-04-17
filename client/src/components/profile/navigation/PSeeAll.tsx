@@ -4,15 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 const { Title } = Typography;
 
-interface CardViewAllProps {
+interface SeeAllProps {
   nameCard: string;
   namePath: string;
 }
 
-export const CardViewAll: React.FC<CardViewAllProps> = ({
-  nameCard,
-  namePath,
-}) => {
+export const PSeeAll: React.FC<SeeAllProps> = ({ nameCard, namePath }) => {
   return (
     <Row style={{ height: "60px" }}>
       <Col flex={1} />
@@ -20,10 +17,7 @@ export const CardViewAll: React.FC<CardViewAllProps> = ({
         <Title level={4}>{nameCard}</Title>
       </Col>
       <Col flex={1} style={{ paddingTop: "15px" }}>
-        <Link
-          to={`/profile/roadmaps/all/${namePath}`}
-          // style={{ paddingBottom: "25px" }}
-        >
+        <Link to={`/profile/roadmaps/all/${namePath}`}>
           <Button type="text" size="large">
             See all
           </Button>

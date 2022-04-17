@@ -1,0 +1,41 @@
+{
+  "roadmap": [
+    {
+      "roadmap": {
+        "user_id": 1,
+        "roadmap_id": 1,
+        "name": "testing Name",
+        "short_description": "short_descr",
+        "full_description": "fulkl",
+        "background_url": "back_url",
+        "avatar_img": "av",
+        "percent": 99
+      }
+    }
+  ],
+  "user": {
+    "user_id": 228,
+    "login": "ZALUPISHKA"
+  },
+  "ZALUPISHKA": {
+    "active_roadmaps": [
+      {
+        "user_id": 1,
+        "roadmap_id": 1,
+        "name": "testing Name",
+        "short_description": "short_descr",
+        "full_description": "fulkl",
+        "background_url": "back_url",
+        "avatar_img": "av",
+        "percent": 99,
+        "favorite": true,
+        "isActive": true,
+        "isCreator": true,
+        "isEditor": true
+      }
+    ],
+    "sucessed_roadmaps": [],
+    "created_roadmaps": [],
+    "favorited_roadmaps": []
+  }
+}

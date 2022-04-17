@@ -1,6 +1,6 @@
 import { Radio } from "antd";
 import { Link, useNavigate } from "react-router-dom";
-export const NavigatorProfile: React.FC = () => {
+export const PNavigation: React.FC = () => {
   let navigate = useNavigate();
   const changePath = (e: React.MouseEvent<HTMLInputElement>) => {
     navigate(`/profile/${e.currentTarget.value}`);

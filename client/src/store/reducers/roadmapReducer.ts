@@ -1,19 +1,15 @@
 import {
   RoadmapAction,
   RoadmapActionTypes,
-  RoadmapContainer,
+  RoadmapsContainer,
 } from "../../types/roadmap";
 
-const initialState: RoadmapContainer = {
-  roadmap: {
-    user_id: 1,
-    roadmap_id: 1,
-    name: "Testing",
-    short_description: "short",
-    full_description: "full",
-    background_url: "back_url",
-    avatar_img: "av_url",
-    percent: 0,
+const initialState: RoadmapsContainer = {
+  roadmaps: {
+    active_roadmaps: [],
+    sucessed_roadmaps: [],
+    created_roadmaps: [],
+    favorited_roadmaps: [],
   },
   loading: false,
 };
@@ -21,7 +17,7 @@ const initialState: RoadmapContainer = {
 export const roadmapReducer = (
   state = initialState,
   action: RoadmapAction
-): RoadmapContainer => {
+): RoadmapsContainer => {
   switch (action.type) {
     case RoadmapActionTypes.LOADING_ROADMAP:
       return { ...state, loading: true };
@@ -29,8 +25,10 @@ export const roadmapReducer = (
       return {
         ...state,
         loading: false,
-        roadmap: action.roadmap,
+        roadmaps: { active_roadmaps: [action.roadmap] },
       };
+    case RoadmapActionTypes.GET_USER_ROADMAPS:
+      return { ...state, loading: false, roadmaps: action.roadmaps };
     case RoadmapActionTypes.ERROR:
       return {
         ...state,

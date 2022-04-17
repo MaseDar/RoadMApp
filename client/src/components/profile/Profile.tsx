@@ -1,9 +1,14 @@
 import { Row, Col, Space } from "antd";
-import { HatProfile } from "./HatProfile";
+import { PHat } from "./PHat";
 import { Avatar } from "antd";
 import { Radio } from "antd";
 import { Link, Outlet } from "react-router-dom";
-import { NavigatorProfile } from "./NavigatorProfile";
+import { PNavigation } from "./navigation/PNavigation";
+import { useEffect } from "react";
+import { getTestUser } from "../../store/action-creators/users";
+import { useTypedSelector } from "../../hooks/useTypedSeletor";
+import { getUserRoadmaps } from "../../store/action-creators/roadmap";
+import { useActions } from "../../hooks/useActions";
 
 let hat = {
   name: "Lorem ipsum dolor sit amet",
@@ -15,7 +20,20 @@ let hat = {
 };
 
 export const Profile: React.FC = () => {
-  return (
+  const { user } = useTypedSelector((state) => state);
+  const { getUserRoadmaps, getTestUser } = useActions();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      await getTestUser();
+      // TODO: НУЖЕН ФИКС, А ТО ПОКАЗЫВАЕТСЯ СНАЧАЛА ПАРАША
+      if (user.user.id != 1) await getUserRoadmaps(user.user);
+    };
+
+    fetchData();
+    console.log("a", user);
+  }, []);
+  return !user.loading ? (
     <>
       <Row
         align="middle"
@@ -23,7 +41,7 @@ export const Profile: React.FC = () => {
         style={{ backgroundColor: "#A5C05B", height: "300px" }}
       >
         <Col span={6} offset={5}>
-          <HatProfile />
+          <PHat />
         </Col>
         <Col span={4} offset={6}>
           <Avatar size={200}></Avatar>
@@ -31,7 +49,7 @@ export const Profile: React.FC = () => {
         <Col span={3} />
       </Row>
       <Row align="middle" justify="center" style={{ height: "100px" }}>
-        <NavigatorProfile />
+        <PNavigation />
       </Row>
       {/* TODO: вынести в консанты стили*/}
       <div style={{ padding: "0px 25px 0px 25px" }}>
@@ -40,5 +58,7 @@ export const Profile: React.FC = () => {
         {/* </Space> */}
       </div>
     </>
+  ) : (
+    <div>ПОсоси пизду</div>
   );
 };
