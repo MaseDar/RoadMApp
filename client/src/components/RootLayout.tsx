@@ -22,14 +22,16 @@ export const RootLayout: React.FC = () => {
           <Menu.Item key="2">
             <Link to="/roadmaps">Roadmaps</Link>
           </Menu.Item>
+
+          <Menu.Item key="3">
+            <Link to="/steps">Steps</Link>
+          </Menu.Item>
         </Menu>
       </Header>
       <Layout>
-        <Layout>
-          <Content className="site-layout-background">
-            <Outlet />
-          </Content>
-        </Layout>
+        <Content style={{ backgroundColor: "#ffffff" }}>
+          <Outlet />
+        </Content>
       </Layout>
       <Footer style={{ textAlign: "center" }}>UpRoad ©2022</Footer>
     </Layout>

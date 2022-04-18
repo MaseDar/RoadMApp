@@ -15,6 +15,7 @@ import { RCreate } from "./components/roadmap/RCreate";
 import { Roadmap } from "./components/roadmap/Roadmap";
 
 import { RootLayout } from "./components/RootLayout";
+import { AppSteps } from "./components/steps/AppSteps";
 import { Test } from "./components/Test";
 
 const RootRouter: React.FC = () => {
@@ -35,6 +36,7 @@ const RootRouter: React.FC = () => {
             <Route path="roadmap/:id" element={<Roadmap />} />
             <Route path="roadmap/create" element={<RCreate />} />
             <Route path="roadmaps" element={<Test />} />
+            <Route path="steps" element={<AppSteps />} />
             {/* <Route path="dashboard" element={<Dashboard />} /> */}
             <Route path="*" element={<Navigate to="/profile" />} />
           </Route>
