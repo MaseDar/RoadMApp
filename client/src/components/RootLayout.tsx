@@ -33,7 +33,9 @@ export const RootLayout: React.FC = () => {
           <Outlet />
         </Content>
       </Layout>
-      <Footer style={{ textAlign: "center" }}>UpRoad ©2022</Footer>
+      <Footer style={{ textAlign: "center", backgroundColor: "#ffffff" }}>
+        UpRoad ©2022
+      </Footer>
     </Layout>
   );
 };
