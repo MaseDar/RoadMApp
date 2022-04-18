@@ -1,6 +1,6 @@
 import { Typography, Avatar, Col, Row } from "antd";
 import { useNavigate } from "react-router-dom";
-import { RoadmapTrancferProps, RoadmapState } from "../../../types/roadmap";
+import { RoadmapTransferProps } from "../../../types/common/TypeRoadmap";
 
 const { Text, Title } = Typography;
 
@@ -8,13 +8,12 @@ const { Text, Title } = Typography;
  * Profile Roadmap Card Item (один элемент карточки в профиле)
  * @returns
  */
-export const PRCardItem: React.FC<RoadmapTrancferProps> = ({ roadmap }) => {
+export const PRCardItem: React.FC<RoadmapTransferProps> = ({ roadmap }) => {
   let height = "92px";
   let navigate = useNavigate();
   const changePath = (idRoadmap: number) => {
     navigate(`/roadmap/${idRoadmap}`);
   };
-  // let id = 52;
 
   return (
     <>
@@ -36,7 +35,7 @@ export const PRCardItem: React.FC<RoadmapTrancferProps> = ({ roadmap }) => {
   );
 };
 
-const PRCardItemInner: React.FC<RoadmapTrancferProps> = ({ roadmap }) => {
+const PRCardItemInner: React.FC<RoadmapTransferProps> = ({ roadmap }) => {
   return (
     <Row align="middle" style={{ marginTop: "10px" }}>
       <Col flex={1} />

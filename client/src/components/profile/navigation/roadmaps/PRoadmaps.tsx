@@ -3,7 +3,6 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { PRCard } from "../../../extends/roadmap/PRCard";
 
 export const PRoadmaps: React.FC = () => {
-  let height = "400px";
   const location = useLocation();
 
   return (

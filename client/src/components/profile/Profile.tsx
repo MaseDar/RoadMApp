@@ -1,23 +1,11 @@
 import { Row, Col, Space } from "antd";
 import { PHat } from "./PHat";
 import { Avatar } from "antd";
-import { Radio } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import { PNavigation } from "./navigation/PNavigation";
 import { useEffect } from "react";
-import { getTestUser } from "../../store/action-creators/UserActions";
 import { useTypedSelector } from "../../hooks/useTypedSeletor";
-import { getUserRoadmaps } from "../../store/action-creators/PRActions";
 import { useActions } from "../../hooks/useActions";
-
-let hat = {
-  name: "Lorem ipsum dolor sit amet",
-  percent: 88,
-  short_desctiption:
-    "Et magnis dis parturient montes nascetur ridiculus mus mauris vitae ultricies",
-  full_description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cras semper auctor neque vitae. Ornare massa eget egestas purus viverra accumsan in nisl. Vulputate dignissim suspendisse in est ante in. Sem fringilla ut morbi tincidunt augue interdum velit euismod in.",
-};
 
 export const Profile: React.FC = () => {
   const { stateUser } = useTypedSelector((state) => state);

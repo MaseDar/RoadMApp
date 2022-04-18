@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { heightRPCard } from "../../../constants/constants";
 import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSeletor";
-import { getUserRoadmaps } from "../../../store/action-creators/PRActions";
 import { PSeeAll } from "../../profile/navigation/PSeeAll";
 import { PRCardItem } from "./PRCardItem";
 /**

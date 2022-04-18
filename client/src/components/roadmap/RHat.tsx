@@ -1,13 +1,13 @@
-import { Typography, Space, Row, Avatar, Col } from "antd";
-import { RoadmapTrancferProps } from "../../types/roadmap";
+import { Typography, Row, Avatar, Col } from "antd";
+import { RoadmapTransferProps } from "../../types/common/TypeRoadmap";
 
 const { Title, Text } = Typography;
 
-export const RHat: React.FC<RoadmapTrancferProps> = ({ roadmap }) => {
+export const RHat: React.FC<RoadmapTransferProps> = ({ roadmap }) => {
   return <BigHatRoadmap roadmap={roadmap} />;
 };
 
-const BigHatRoadmap: React.FC<RoadmapTrancferProps> = ({ roadmap }) => {
+const BigHatRoadmap: React.FC<RoadmapTransferProps> = ({ roadmap }) => {
   return (
     <Row
       align="middle"

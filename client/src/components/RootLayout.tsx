@@ -31,9 +31,7 @@ export const RootLayout: React.FC = () => {
           </Content>
         </Layout>
       </Layout>
-      <Footer style={{ textAlign: "center" }}>
-        RoadM.App ©2022 Created by MaseDar
-      </Footer>
+      <Footer style={{ textAlign: "center" }}>UpRoad ©2022</Footer>
     </Layout>
   );
 };

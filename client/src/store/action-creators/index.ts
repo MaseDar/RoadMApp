@@ -1,7 +1,9 @@
-import * as UserActionCreators from "./UserActions";
-import * as RoadmapActionCreators from "./PRActions";
+import * as UserActionCreators from "./userActions";
+import * as ProfileActionCreators from "./profileActions";
+import * as RoadmapActionCreators from "./roadmapActions";
 
 export default {
-  ...RoadmapActionCreators,
+  ...ProfileActionCreators,
   ...UserActionCreators,
+  ...RoadmapActionCreators,
 };
