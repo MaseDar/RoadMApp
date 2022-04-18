@@ -5,9 +5,9 @@ import { Radio } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import { PNavigation } from "./navigation/PNavigation";
 import { useEffect } from "react";
-import { getTestUser } from "../../store/action-creators/users";
+import { getTestUser } from "../../store/action-creators/UserActions";
 import { useTypedSelector } from "../../hooks/useTypedSeletor";
-import { getUserRoadmaps } from "../../store/action-creators/roadmap";
+import { getUserRoadmaps } from "../../store/action-creators/PRActions";
 import { useActions } from "../../hooks/useActions";
 
 let hat = {
@@ -20,20 +20,18 @@ let hat = {
 };
 
 export const Profile: React.FC = () => {
-  const { user } = useTypedSelector((state) => state);
-  const { getUserRoadmaps, getTestUser } = useActions();
+  const { stateUser } = useTypedSelector((state) => state);
+  const { getTestUser } = useActions();
 
   useEffect(() => {
     const fetchData = async () => {
       await getTestUser();
-      // TODO: НУЖЕН ФИКС, А ТО ПОКАЗЫВАЕТСЯ СНАЧАЛА ПАРАША
-      if (user.user.id != 1) await getUserRoadmaps(user.user);
     };
 
     fetchData();
-    console.log("a", user);
+    console.log("a", stateUser);
   }, []);
-  return !user.loading ? (
+  return !stateUser.loading ? (
     <>
       <Row
         align="middle"

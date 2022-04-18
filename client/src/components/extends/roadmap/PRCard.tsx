@@ -1,7 +1,9 @@
 import { Col, Row } from "antd";
 import { useEffect } from "react";
 import { heightRPCard } from "../../../constants/constants";
+import { useActions } from "../../../hooks/useActions";
 import { useTypedSelector } from "../../../hooks/useTypedSeletor";
+import { getUserRoadmaps } from "../../../store/action-creators/PRActions";
 import { PSeeAll } from "../../profile/navigation/PSeeAll";
 import { PRCardItem } from "./PRCardItem";
 /**
@@ -9,11 +11,14 @@ import { PRCardItem } from "./PRCardItem";
  * @returns
  */
 export const PRCard: React.FC<{}> = () => {
-  const { active_roadmaps } = useTypedSelector(
-    (state) => state.stateRoadmaps.roadmaps
-  );
+  const { stateUser, stateProfile } = useTypedSelector((state) => state);
+  const { getUserRoadmaps } = useActions();
+  // const active_roadmaps = stateRoadmaps.roadmaps.active_roadmaps;
   // TODO: Для каждого блока написать свой reducer, т.к. история с общими многоволженными объектами - не оч
-  useEffect(() => {}, []);
+
+  useEffect(() => {
+    if (stateUser.user.id != 1) getUserRoadmaps(stateUser.user);
+  }, []);
   return (
     <Col
       span={14}
@@ -26,8 +31,8 @@ export const PRCard: React.FC<{}> = () => {
     >
       <PSeeAll nameCard="Active Roadmaps" namePath="active" />
       <Row gutter={[0, 16]}>
-        {active_roadmaps.map((road) => (
-          <PRCardItem key={road.roadmap.roadmap_id} roadmap={road.roadmap} />
+        {stateProfile.profile_roadmaps?.active_roadmaps?.map((road) => (
+          <PRCardItem key={road.roadmap_id} roadmap={road} />
         ))}
       </Row>
     </Col>

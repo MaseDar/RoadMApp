@@ -1,33 +1,38 @@
 import { ActionState } from "./extenders/ActionState";
-export interface RoadmapState {
+interface RoadmapHat {
+  name: string;
+  short_description?: string;
+  full_description?: string;
+  background_url?: string;
+  avatar_img?: string;
+  percent: number;
+}
+
+export interface RoadmapState extends RoadmapHat {
   user_id: number;
   roadmap_id: number;
-  name: string;
-  short_description: string;
-  full_description: string;
-  background_url: string;
-  avatar_img: string;
-  percent: number;
   favorite: boolean;
   isActive: boolean;
   isCreator: boolean;
   isEditor: boolean;
 }
-export interface RoadmapContainer {
-  roadmap: RoadmapState;
-}
 
 export interface TypesRoadmaps {
-  active_roadmaps: RoadmapContainer[];
-  sucessed_roadmaps?: RoadmapContainer[];
-  created_roadmaps?: RoadmapContainer[];
-  favorited_roadmaps?: RoadmapContainer[];
+  active_roadmaps?: RoadmapState[];
+  sucessed_roadmaps?: RoadmapState[];
+  created_roadmaps?: RoadmapState[];
+  favorited_roadmaps?: RoadmapState[];
 }
 
 export interface RoadmapsContainer {
-  roadmaps: TypesRoadmaps;
+  single_roadmap?: RoadmapState;
+  profile_roadmaps?: TypesRoadmaps;
   loading: boolean;
   error?: string;
+}
+
+export interface RoadmapTrancferProps {
+  roadmap: RoadmapState;
 }
 
 export enum RoadmapActionTypes {
@@ -40,13 +45,20 @@ export enum RoadmapActionTypes {
   ERROR = "ERROR",
 }
 
+// export interface RoadmapsContainer {
+//   roadmaps: RoadmapState[];
+//   loading: boolean;
+//   error?: string;
+// }
+
 interface LoadingRoadmapAction {
   type: RoadmapActionTypes.LOADING_ROADMAP;
 }
 
 interface GetRoadmapAction {
   type: RoadmapActionTypes.GET_ROADMAP;
-  roadmap: RoadmapContainer;
+  roadmap: RoadmapState;
+  error?: string;
 }
 interface GetUserRoadmaps {
   type: RoadmapActionTypes.GET_USER_ROADMAPS;
@@ -62,6 +74,7 @@ interface DeleteRoadmapAction {
   type: RoadmapActionTypes.DELETE_ROADMAP;
   user_id: number;
   roadmap_id: number;
+  success: boolean;
 }
 interface ErrorAction {
   type: RoadmapActionTypes.ERROR;

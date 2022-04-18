@@ -11,7 +11,7 @@ interface PHatProps {
 }
 
 export const PHat: React.FC<PHatProps> = () => {
-  let user = useTypedSelector((state) => state.user.user);
+  let user = useTypedSelector((state) => state.stateUser.user);
   return (
     <>
       {/* <Space direction="vertical" size={"middle"}> */}

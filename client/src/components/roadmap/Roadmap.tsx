@@ -1,11 +1,12 @@
 import { Avatar, Col, Row } from "antd";
 import { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
+import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSeletor";
 import {
   getRoadmap,
   getUserRoadmaps,
-} from "../../store/action-creators/roadmap";
+} from "../../store/action-creators/PRActions";
 import { RHat } from "./RHat";
 let hat = {
   name: "Lorem ipsum dolor sit amet",
@@ -18,13 +19,21 @@ let hat = {
 
 // нужен удобный контенер
 export const Roadmap: React.FC = () => {
-  const { stateRoadmaps, user } = useTypedSelector((state) => state);
+  const { stateProfile } = useTypedSelector((state) => state);
+  const { getRoadmap } = useActions();
   const params = useParams();
-  console.log(params);
-  console.log(stateRoadmaps.roadmaps.active_roadmaps);
+  console.log(stateProfile.single_roadmap);
   useEffect(() => {
-    getRoadmap();
-    console.log(user);
+    const fetchData = async () => {
+      await getRoadmap(params.id);
+    };
+    fetchData();
   }, []);
-  return <>{/* <RHat roadmap={stateRoadmaps.roadmap} small={false} /> */}</>;
+  return !stateProfile ? (
+    <>
+      <RHat roadmap={stateProfile} />{" "}
+    </>
+  ) : (
+    <div>ОСсиПизду</div>
+  );
 };
