@@ -8,7 +8,6 @@ export const getTestUser = () => {
       dispatch({ type: UserActionTypes.LOADING });
       // Запрос
       let response = await axios.get(`http://localhost:3000/user`);
-      console.log(response);
       dispatch({
         type: UserActionTypes.GET_TEST_USER,
         user: response.data,

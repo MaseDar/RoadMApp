@@ -26,13 +26,16 @@ export const PRCard: React.FC<{}> = () => {
         borderRadius: "10px",
         backgroundColor: "#A5C05B",
         height: heightRPCard,
+        overflow: "auto",
       }}
     >
       <PSeeAll nameCard="Active Roadmaps" namePath="active" />
       <Row gutter={[0, 16]}>
-        {stateProfile.profile_roadmaps?.active_roadmaps?.map((road) => (
-          <PRCardItem key={road.roadmap_id} roadmap={road} />
-        ))}
+        {stateProfile.profile_roadmaps?.active_roadmaps
+          // ?.slice(0, 3)
+          ?.map((road) => (
+            <PRCardItem key={road.roadmap_id} roadmap={road} />
+          ))}
       </Row>
     </Col>
   );

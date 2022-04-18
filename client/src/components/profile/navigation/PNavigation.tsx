@@ -4,7 +4,6 @@ export const PNavigation: React.FC = () => {
   let navigate = useNavigate();
   const changePath = (e: React.MouseEvent<HTMLInputElement>) => {
     navigate(`/profile/${e.currentTarget.value}`);
-    // console.log(`/profile/${e.currentTarget.value}`);
   };
   return (
     <>

@@ -8,7 +8,7 @@ import { useTypedSelector } from "../../hooks/useTypedSeletor";
 import { useActions } from "../../hooks/useActions";
 
 export const Profile: React.FC = () => {
-  const { stateUser } = useTypedSelector((state) => state);
+  const { loading } = useTypedSelector((state) => state.stateUser);
   const { getTestUser } = useActions();
 
   useEffect(() => {
@@ -17,9 +17,8 @@ export const Profile: React.FC = () => {
     };
 
     fetchData();
-    console.log("a", stateUser);
   }, []);
-  return !stateUser.loading ? (
+  return !loading ? (
     <>
       <Row
         align="middle"
