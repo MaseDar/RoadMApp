@@ -3,13 +3,11 @@ import {
   Routes,
   Route,
   Navigate,
-  useParams,
 } from "react-router-dom";
 import { PRCard } from "./components/extends/roadmap/PRCard";
 import { Achieves } from "./components/profile/navigation/achieves/Achieves";
 import { Friends } from "./components/profile/navigation/friends/Friends";
 import { PActiveRoadmaps } from "./components/profile/navigation/roadmaps/active/PActiveRoadmaps";
-import { PRoadmaps } from "./components/profile/navigation/roadmaps/PRoadmaps";
 import { Profile } from "./components/profile/Profile";
 import { RCreate } from "./components/roadmap/RCreate";
 import { Roadmap } from "./components/roadmap/Roadmap";
