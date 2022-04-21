@@ -7,7 +7,7 @@ export const AppSteps: React.FC = () => {
   return (
     <>
       <Row justify="center" style={{ paddingTop: "30px" }}>
-        <Col offset={6} span={6}>
+        <Col>
           <Title level={2}>Frontend roadmap</Title>
           <Steps direction="vertical" current={1}>
             <Step title="Create project" description="Start UpRoad" />
@@ -24,7 +24,7 @@ export const AppSteps: React.FC = () => {
             <Step title="Release" description="Entry first users" />
           </Steps>
         </Col>
-        <Col offset={4} flex="auto">
+        <Col offset={1}>
           <Title level={2}>Backend roadmap</Title>
           <Steps direction="vertical" current={0}>
             <Step

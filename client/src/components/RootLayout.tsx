@@ -1,32 +1,38 @@
-import { Layout, Menu, Breadcrumb } from "antd";
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-} from "@ant-design/icons";
+import { Col, Layout, Menu, Row } from "antd";
 import { Link, Outlet } from "react-router-dom";
+import { UpRoadLogoSVG } from "./svg/Logo";
 
-const { SubMenu } = Menu;
 const { Header, Content, Footer } = Layout;
 
 export const RootLayout: React.FC = () => {
   return (
     <Layout>
-      <Header className="header">
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">
-            <Link to="/profile/roadmaps">Profile</Link>
-          </Menu.Item>
+      <Header style={{ backgroundColor: "#ffffff" }}>
+        <Row align="middle" justify="center">
+          <Col>
+            <UpRoadLogoSVG />
+          </Col>
 
-          <Menu.Item key="2">
-            <Link to="/roadmaps">Roadmaps</Link>
-          </Menu.Item>
+          <Col>
+            <Menu
+              style={{ backgroundColor: "#ffffff", marginBottom: "1px" }}
+              mode="horizontal"
+              defaultSelectedKeys={["1"]}
+            >
+              <Menu.Item key="1">
+                <Link to="/profile/roadmaps">Profile</Link>
+              </Menu.Item>
 
-          <Menu.Item key="3">
-            <Link to="/steps">Steps</Link>
-          </Menu.Item>
-        </Menu>
+              <Menu.Item key="2">
+                <Link to="/roadmaps">Roadmaps</Link>
+              </Menu.Item>
+
+              <Menu.Item key="3">
+                <Link to="/steps">Steps</Link>
+              </Menu.Item>
+            </Menu>
+          </Col>
+        </Row>
       </Header>
       <Layout>
         <Content style={{ backgroundColor: "#ffffff" }}>
