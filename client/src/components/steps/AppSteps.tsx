@@ -26,7 +26,7 @@ export const AppSteps: React.FC = () => {
         </Col>
         <Col offset={1}>
           <Title level={2}>Backend roadmap</Title>
-          <Steps direction="vertical" current={0}>
+          <Steps direction="vertical" current={1}>
             <Step
               title="Create database"
               description="Create database on PostgreSQL"
