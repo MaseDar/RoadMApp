@@ -1,14 +1,14 @@
 import { Col, Layout, Menu, Row } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import { UpRoadLogoSVG } from "./svg/Logo";
-import { geekblue } from "@ant-design/colors";
+import { green } from "@ant-design/colors";
 
 const { Header, Content, Footer } = Layout;
 
 export const RootLayout: React.FC = () => {
   return (
     <Layout>
-      <Header style={{ backgroundColor: geekblue[7] }}>
+      <Header style={{ backgroundColor: "#ffffff" }}>
         <Row
         // justify="center"
         >
