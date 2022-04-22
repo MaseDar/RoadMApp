@@ -15,6 +15,7 @@ export const RootLayout: React.FC = () => {
 
           <Col>
             <Menu
+              inlineCollapsed={false}
               style={{ backgroundColor: "#ffffff", marginBottom: "1px" }}
               mode="horizontal"
               defaultSelectedKeys={["1"]}
