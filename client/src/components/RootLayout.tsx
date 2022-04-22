@@ -11,11 +11,11 @@ export const RootLayout: React.FC = () => {
         <Row
         // justify="center"
         >
-          <Col flex={1}>
+          <Col flex={12}>
             <UpRoadLogoSVG />
           </Col>
 
-          <Col flex={1}>
+          <Col flex={13}>
             <Menu
               inlineCollapsed={false}
               style={{ backgroundColor: "#ffffff", marginBottom: "1px" }}
