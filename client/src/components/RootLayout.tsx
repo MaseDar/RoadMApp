@@ -8,12 +8,14 @@ export const RootLayout: React.FC = () => {
   return (
     <Layout>
       <Header style={{ backgroundColor: "#ffffff" }}>
-        <Row align="middle" justify="center">
-          <Col>
+        <Row
+        // justify="center"
+        >
+          <Col flex={1}>
             <UpRoadLogoSVG />
           </Col>
 
-          <Col>
+          <Col flex={1}>
             <Menu
               inlineCollapsed={false}
               style={{ backgroundColor: "#ffffff", marginBottom: "1px" }}
