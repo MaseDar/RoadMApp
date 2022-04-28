@@ -1,7 +1,7 @@
 import { Row, Col, Space } from "antd";
 import { PHat } from "./PHat";
 import { Avatar } from "antd";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { PNavigation } from "./navigation/PNavigation";
 import { useEffect } from "react";
 import { useTypedSelector } from "../../hooks/useTypedSeletor";
@@ -9,11 +9,13 @@ import { useActions } from "../../hooks/useActions";
 
 export const Profile: React.FC = () => {
   const { loading } = useTypedSelector((state) => state.stateUser);
-  const { getTestUser } = useActions();
+  const { getUserByName } = useActions();
+  const params = useParams();
 
   useEffect(() => {
+    console.log(params);
     const fetchData = async () => {
-      await getTestUser();
+      await getUserByName(params.username);
     };
 
     fetchData();

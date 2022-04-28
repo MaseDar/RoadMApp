@@ -25,8 +25,17 @@ export const usersReducer = (
       return { ...state, loading: true };
     case UserActionTypes.GET_TEST_USER:
       return { ...state, loading: false, user: action.user };
+    case UserActionTypes.GET_USER:
+      return { ...state, loading: false, user: action.user };
+    case UserActionTypes.CHANGE_PROFILE:
+      return { ...state, loading: false, user: action.user };
     case UserActionTypes.LOGIN:
-      return { ...state, loading: false, token: action.token };
+      return {
+        ...state,
+        loading: false,
+        token: action.token,
+        user: action.user,
+      };
     case UserActionTypes.ERROR:
       return {
         loading: false,

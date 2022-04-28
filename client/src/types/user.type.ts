@@ -27,15 +27,29 @@ export enum UserActionTypes {
   LOGIN = "LOGIN",
   SIGNUP = "SIGNUP",
   GET_TEST_USER = "GET_TEST_USER",
+  GET_USER = "GET_USER",
   EXIT = "EXIT",
   ERROR = "ERROR",
   LOADING = "LOADING",
+  CHANGE_PROFILE = "UserActionTypes",
 }
 
 interface GetTestUserAction {
   type: UserActionTypes.GET_TEST_USER;
   user: UserState;
   success: boolean;
+  error?: string;
+}
+
+interface GetUserAction {
+  type: UserActionTypes.GET_USER;
+  user: UserState;
+  error?: string;
+}
+
+interface ChangeProfileAction {
+  type: UserActionTypes.CHANGE_PROFILE;
+  user: UserState;
   error?: string;
 }
 
@@ -48,6 +62,7 @@ interface LoginUserAction {
   token: string;
   success: boolean;
   error?: string;
+  user: UserState;
 }
 
 interface SignUpUserAction {
@@ -73,5 +88,7 @@ export type UserAction =
   | SignUpUserAction
   | ExitUserAction
   | GetTestUserAction
+  | GetUserAction
+  | ChangeProfileAction
   | ErrorUserAction
   | UserLoading;

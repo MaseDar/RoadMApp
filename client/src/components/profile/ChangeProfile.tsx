@@ -1,12 +1,18 @@
 import { Form, Input, Button, Checkbox } from "antd";
 import { useActions } from "../../hooks/useActions";
+import { useTypedSelector } from "../../hooks/useTypedSeletor";
 
-export const LogIn: React.FC = () => {
-  const { postLogIn } = useActions();
-
+export const ChangeProfile: React.FC = () => {
+  const { user } = useTypedSelector((state) => state.stateUser);
+  const { postChangeUser } = useActions();
+  console.log(user);
   const onFinish = (values: any) => {
     console.log("Success:", values);
-    postLogIn(values);
+    postChangeUser(
+      localStorage.getItem("username"),
+      values.firstname,
+      values.lastname
+    );
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -18,38 +24,34 @@ export const LogIn: React.FC = () => {
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
-        initialValues={{ remember: true }}
+        initialValues={{
+          remember: true,
+          firstname: user.username,
+          lastname: user.username,
+        }}
         onFinish={onFinish}
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
         <Form.Item
-          label="Username"
-          name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
+          label="First Name"
+          name="firstname"
+          rules={[{ required: true, message: "Please input your First Name!" }]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: "Please input your password!" }]}
+          label="Last Name"
+          name="lastname"
+          rules={[{ required: true, message: "Please input your Last Name!" }]}
         >
-          <Input.Password />
-        </Form.Item>
-
-        <Form.Item
-          name="remember"
-          valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
-        >
-          <Checkbox>Remember me</Checkbox>
+          <Input />
         </Form.Item>
 
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Save
           </Button>
         </Form.Item>
       </Form>
