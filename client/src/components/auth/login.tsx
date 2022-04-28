@@ -55,7 +55,7 @@ export const LogIn: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
-      {token}
+      {/* {localStorage.getItem("token_access")} */}
     </>
   );
 };

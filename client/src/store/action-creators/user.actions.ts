@@ -69,6 +69,8 @@ export const postLogIn = (login: LogInState) => {
           password: login.password,
         }
       );
+      if (response.data.token)
+        localStorage.setItem("token_access", response.data.token);
       dispatch({
         type: UserActionTypes.LOGIN,
         token: response.data.token,
