@@ -22,7 +22,7 @@ export const PHat: React.FC<PHatProps> = () => {
           bordered={false}
           placeholder="Nickname"
         /> */}
-        {user.login}
+        {user.username}
       </Title>
       <Title level={5} style={{ margin: 0 }}>
         Firstname Lastname

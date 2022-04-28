@@ -1,4 +1,4 @@
-import * as UserActionCreators from "./userActions";
+import * as UserActionCreators from "./user.actions";
 import * as ProfileActionCreators from "./profileActions";
 import * as RoadmapActionCreators from "./roadmapActions";
 

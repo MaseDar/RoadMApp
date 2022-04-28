@@ -4,6 +4,8 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { LogIn } from "./components/auth/login";
+import { SignUp } from "./components/auth/signup";
 import { PRCard } from "./components/extends/roadmap/PRCard";
 import { Achieves } from "./components/profile/navigation/achieves/Achieves";
 import { Friends } from "./components/profile/navigation/friends/Friends";
@@ -35,6 +37,8 @@ const RootRouter: React.FC = () => {
             <Route path="roadmap/create" element={<RCreate />} />
             <Route path="roadmaps" element={<Test />} />
             <Route path="steps" element={<AppSteps />} />
+            <Route path="login" element={<LogIn />} />
+            <Route path="signup" element={<SignUp />} />
             {/* <Route path="dashboard" element={<Dashboard />} /> */}
             <Route path="*" element={<Navigate to="/profile" />} />
           </Route>

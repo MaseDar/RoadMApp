@@ -1,7 +1,14 @@
-export interface UserState {
+export interface LogInState {
+  username: string;
+  password: string;
+}
+
+export interface SignUpState extends LogInState {
+  email: string;
+}
+
+export interface UserState extends SignUpState {
   id: number;
-  login: string;
-  // password: string
   // firstname: string
   // secondname: string
   // email: string
@@ -13,6 +20,7 @@ export interface UserContainer {
   user: UserState;
   loading: boolean;
   error?: string;
+  token: string;
 }
 
 export enum UserActionTypes {
@@ -37,6 +45,7 @@ interface UserLoading {
 
 interface LoginUserAction {
   type: UserActionTypes.LOGIN;
+  token: string;
   success: boolean;
   error?: string;
 }

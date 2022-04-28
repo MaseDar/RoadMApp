@@ -1,7 +1,7 @@
 import { Dispatch } from "redux";
 import axios from "axios";
 
-import { UserState } from "../../types/user";
+import { UserState } from "../../types/user.type";
 import { ProfileAction, ProfileActionTypes } from "../../types/profile";
 
 export const getUserRoadmaps = (user: UserState) => {
@@ -11,7 +11,7 @@ export const getUserRoadmaps = (user: UserState) => {
       dispatch({ type: ProfileActionTypes.LOADING_PROFILE });
       // Запрос
       const response = await axios.get(
-        `http://localhost:3000/profile/${user.login}/roadmaps/`
+        `http://localhost:3000/profile/${user.username}/roadmaps/`
       );
       dispatch({
         type: ProfileActionTypes.GET_USER_ROADMAPS,
