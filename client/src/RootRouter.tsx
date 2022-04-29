@@ -34,10 +34,7 @@ const RootRouter: React.FC = () => {
               <Route path="roadmaps/all/favorites" element={<Achieves />} />
               <Route path="friends" element={<Friends />} />
             </Route>
-            <Route
-              path="profile/:username/change"
-              element={<ChangeProfile />}
-            />
+            <Route path="profile/change" element={<ChangeProfile />} />
             <Route path="roadmap/:id" element={<Roadmap />} />
             <Route path="roadmap/create" element={<RCreate />} />
             <Route path="roadmaps" element={<Test />} />

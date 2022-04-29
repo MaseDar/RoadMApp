@@ -18,7 +18,7 @@ export const ChangeProfile: React.FC = () => {
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
-    postChangeUser(user.username, values.firstname, values.lastname);
+    postChangeUser(values.firstname, values.lastname);
   };
 
   const onFinishFailed = (errorInfo: any) => {
