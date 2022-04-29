@@ -7,6 +7,7 @@ export const SignUp: React.FC = () => {
   const { postSignUp } = useActions();
   const onFinish = (values: any) => {
     console.log(values);
+    let {} = values;
     postSignUp(values);
   };
 
@@ -17,7 +18,14 @@ export const SignUp: React.FC = () => {
           <Form.Item
             name="username"
             label="Username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            rules={[
+              {
+                pattern: RegExp("^[a-z0-9_-]+$"),
+                required: true,
+                message:
+                  "Please input your username! (Uppercase letters is not allowed)",
+              },
+            ]}
           >
             <Input />
           </Form.Item>
@@ -25,7 +33,13 @@ export const SignUp: React.FC = () => {
           <Form.Item
             name="password"
             label="Password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[
+              {
+                min: 6,
+                required: true,
+                message: "Please input your password! min 6",
+              },
+            ]}
           >
             <Input.Password />
           </Form.Item>

@@ -42,7 +42,7 @@ const RootRouter: React.FC = () => {
             <Route path="login" element={<LogIn />} />
             <Route path="signup" element={<SignUp />} />
             {/* <Route path="dashboard" element={<Dashboard />} /> */}
-            <Route path="*" element={<Navigate to="/profile/masedar" />} />
+            <Route path="*" element={<Navigate to="/login" />} />
           </Route>
         </Routes>
       </Router>
