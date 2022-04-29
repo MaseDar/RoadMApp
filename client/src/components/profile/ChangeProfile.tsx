@@ -1,7 +1,9 @@
-import { Form, Input, Button, Checkbox, Row, Col } from "antd";
+import { Form, Input, Button, Row, Col, Select } from "antd";
 import { useEffect } from "react";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSeletor";
+
+const { Option } = Select;
 
 export const ChangeProfile: React.FC = () => {
   const { user, loading } = useTypedSelector((state) => state.stateUser);
@@ -18,7 +20,7 @@ export const ChangeProfile: React.FC = () => {
 
   const onFinish = (values: any) => {
     console.log("Success:", values);
-    postChangeUser(values.firstname, values.lastname);
+    postChangeUser(values);
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -33,9 +35,10 @@ export const ChangeProfile: React.FC = () => {
           wrapperCol={{ span: 16 }}
           initialValues={{
             remember: true,
-            // TODO: Фикс типов
-            firstname: user.username,
-            lastname: user.username,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            gender: user.gender,
+            email: user.email,
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
@@ -43,9 +46,9 @@ export const ChangeProfile: React.FC = () => {
         >
           <Form.Item
             label="First Name"
-            name="firstname"
+            name="firstName"
             rules={[
-              { required: true, message: "Please input your First Name!" },
+              { required: false, message: "Please input your First Name!" },
             ]}
           >
             <Input />
@@ -53,12 +56,39 @@ export const ChangeProfile: React.FC = () => {
 
           <Form.Item
             label="Last Name"
-            name="lastname"
+            name="lastName"
             rules={[
-              { required: true, message: "Please input your Last Name!" },
+              { required: false, message: "Please input your Last Name!" },
             ]}
           >
             <Input />
+          </Form.Item>
+
+          {/* <Form.Item name="password" label="Password">
+            <Input.Password />
+          </Form.Item> */}
+
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[
+              {
+                type: "email",
+                message: "Please input your email!",
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+
+          <Form.Item name="gender" label="Gender">
+            <Select
+              placeholder="Select a option and change input text above"
+              allowClear
+            >
+              <Option value="male">male</Option>
+              <Option value="female">female</Option>
+            </Select>
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>

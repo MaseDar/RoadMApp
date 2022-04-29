@@ -123,7 +123,7 @@ export const postLogIn = (login: LogInState) => {
   };
 };
 // TODO: Сделать норм, а не просто костыль для проверки
-export const postChangeUser = (firstname: string, lastname: string) => {
+export const postChangeUser = (user: UserState) => {
   return async (dispatch: Dispatch<UserAction>) => {
     // Установка загрузки
     dispatch({ type: UserActionTypes.LOADING });
@@ -132,8 +132,8 @@ export const postChangeUser = (firstname: string, lastname: string) => {
       .post(
         `http://localhost:3000/api/v1/profile/change`,
         {
-          firstname: firstname,
-          lastname: lastname,
+          ...user,
+          username: user.username,
         },
         token
       )

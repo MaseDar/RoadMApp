@@ -25,7 +25,7 @@ export const PHat: React.FC<PHatProps> = () => {
         {user.username}
       </Title>
       <Title level={5} style={{ margin: 0 }}>
-        Firstname Lastname
+        {user.firstName + ` ` + user.lastName}
       </Title>
       {/* </Space> */}
     </>

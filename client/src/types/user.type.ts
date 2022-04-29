@@ -10,11 +10,10 @@ export interface SignUpState extends LogInState {
 
 export interface UserState extends SignUpState {
   id: number;
-  // firstname: string
-  // secondname: string
-  // email: string
-  // error: null | string
-  // loading: boolean
+  firstName?: string;
+  lastName?: string;
+  backgroundUrl?: string;
+  avatarUrl?: string;
 }
 
 export interface UserContainer {
