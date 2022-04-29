@@ -5,6 +5,7 @@ export interface LogInState {
 
 export interface SignUpState extends LogInState {
   email: string;
+  gender?: "male" | "female";
 }
 
 export interface UserState extends SignUpState {

@@ -62,13 +62,16 @@ export const postSignUp = (signup: SignUpState) => {
       dispatch({ type: UserActionTypes.LOADING });
       // Запрос
       const response = await axios.post(
-        `http://localhost:3000/api/v1/auth/login`,
+        `http://localhost:3000/api/v1/auth/signup`,
         {
-          signup,
+          ...signup,
         }
       );
-      if (response.data.token)
+      if (response.data.token) {
         localStorage.setItem("token_access", response.data.token);
+        localStorage.setItem("username", response.data.user.username);
+        console.log(response);
+      }
       dispatch({
         type: UserActionTypes.SIGNUP,
         token: response.data.token,
@@ -102,7 +105,7 @@ export const postLogIn = (login: LogInState) => {
       // TODO: Подумать как сделать с изменением профиля пользователя, а не записывать в локал данные
       if (response.data.token) {
         localStorage.setItem("token_access", response.data.token);
-        localStorage.setItem("username", login.username);
+        localStorage.setItem("username", response.data.user.username);
       }
       dispatch({
         type: UserActionTypes.LOGIN,
