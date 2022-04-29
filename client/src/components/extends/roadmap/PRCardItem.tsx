@@ -1,6 +1,6 @@
 import { Typography, Avatar, Col, Row } from "antd";
 import { useNavigate } from "react-router-dom";
-import { RoadmapTransferProps } from "../../../types/common/TypeRoadmap";
+import { RoadmapTransferProps } from "../../../types/common/roadmap.type";
 
 const { Text, Title } = Typography;
 

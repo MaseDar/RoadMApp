@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import { profileReducer } from "./profileReducer";
-import { roadmapReducer } from "./roadmapReducer";
-import { usersReducer } from "./userReducer";
+import { profileReducer } from "./profile.reducer";
+import { roadmapReducer } from "./roadmap.reducer";
+import { usersReducer } from "./user.reducer";
 
 export const rootReducer = combineReducers({
   stateUser: usersReducer,

@@ -1,6 +1,6 @@
 import * as UserActionCreators from "./user.actions";
-import * as ProfileActionCreators from "./profileActions";
-import * as RoadmapActionCreators from "./roadmapActions";
+import * as ProfileActionCreators from "./profile.actions";
+import * as RoadmapActionCreators from "./roadmap.actions";
 
 export default {
   ...ProfileActionCreators,

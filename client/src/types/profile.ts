@@ -1,4 +1,4 @@
-import { RoadmapState } from "./common/TypeRoadmap";
+import { RoadmapState } from "./common/roadmap.type";
 
 export interface TypesRoadmaps {
   active_roadmaps?: RoadmapState[];

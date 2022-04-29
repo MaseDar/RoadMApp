@@ -1,5 +1,5 @@
 import { Typography, Row, Avatar, Col } from "antd";
-import { RoadmapTransferProps } from "../../types/common/TypeRoadmap";
+import { RoadmapTransferProps } from "../../types/common/roadmap.type";
 
 const { Title, Text } = Typography;
 

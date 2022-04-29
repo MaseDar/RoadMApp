@@ -31,7 +31,7 @@ export const getTestUser = () => {
 };
 
 // TODO: Убрать password из ответа и сделать редиркет если пользователя нет или заблочить
-export const getUserByName = (username?: string) => {
+export const getUserByName = (username?: string | null) => {
   return async (dispatch: Dispatch<UserAction>) => {
     try {
       dispatch({ type: UserActionTypes.LOADING });
